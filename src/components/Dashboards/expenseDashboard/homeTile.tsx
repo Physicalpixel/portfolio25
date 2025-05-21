@@ -1,5 +1,4 @@
 import {TbMoodHappyFilled, TbMoodEmptyFilled, TbMoodSadFilled} from "react-icons/tb"
-import React from "react"
 
 interface HomeTileProps {
 	status: string

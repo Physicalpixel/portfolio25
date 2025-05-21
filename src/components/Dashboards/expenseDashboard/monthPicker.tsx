@@ -3,7 +3,7 @@ import {useSearchParams} from "react-router-dom"
 import * as d3 from "d3"
 
 import {ChevronRight, ChevronLeft, Calendar} from "tabler-icons-react"
-import React from "react"
+
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const currentYear = new Date().getFullYear()
 const currentMonth = new Date().getMonth()

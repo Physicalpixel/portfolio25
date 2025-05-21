@@ -1,5 +1,3 @@
-import React from "react"
-
 interface TileProps {
 	title: string
 	value: string | number

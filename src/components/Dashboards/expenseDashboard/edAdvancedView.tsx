@@ -3,7 +3,6 @@ import ReactECharts from "echarts-for-react"
 import {useLocation} from "react-router-dom"
 import ChartTile from "./chartTile"
 import * as d3 from "d3"
-import React from "react"
 import {data} from "../../../data/expenditure_income"
 
 interface EDHome {

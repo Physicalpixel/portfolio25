@@ -1,4 +1,3 @@
-import React from "react"
 import {useState} from "react"
 
 export default function TransactionEntry({icon, categoryValue, merchantName, date, cardUsed, referenceId, indexId}: any) {

@@ -1,4 +1,3 @@
-import React from "react"
 import Header from "../components/header"
 import PortfolioCard from "../components/portfolioCard"
 import {useRef, useState} from "react"

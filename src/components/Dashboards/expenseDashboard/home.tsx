@@ -7,7 +7,7 @@ import EdAdvancedView from "./edAdvancedView"
 import TechnologiesUsed from "./technologiesUsed"
 import History from "./history"
 import {TbZoomMoney} from "react-icons/tb"
-import React from "react"
+
 import ".expenseKpi.css"
 import MonthPicker from "./monthPicker"
 const filterByDate = (data, startDate, endDate) => {

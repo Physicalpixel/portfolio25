@@ -1,5 +1,3 @@
-import React from "react"
-
 export default function MonthTile({monthName}: {monthName: string}) {
 	return (
 		<div className="flex-1 h-12 w-1/13">

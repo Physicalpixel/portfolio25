@@ -1,5 +1,3 @@
-import React from "react"
-
 interface PortfolioCardProps {
 	content: any
 	title: string

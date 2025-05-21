@@ -11,7 +11,7 @@ import Transactions from "./transactions"
 import Icons from "./icons"
 import {spentGaugeOption} from "./echartChartOptions"
 import HomeTile from "./homeTile"
-import React from "react"
+
 import {data} from "../../../data/expenditure_income"
 
 interface historyProps {

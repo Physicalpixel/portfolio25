@@ -13,7 +13,6 @@ import {spentGaugeOption} from "./echartChartOptions.tsx"
 import HomeTile from "./homeTile.tsx"
 import Tile from "./tile.tsx"
 import ChartTile from "./chartTile.tsx"
-import React from "react"
 
 interface EDHome {
 	merchant_name: any
@@ -241,7 +240,7 @@ export default function EDHome() {
 	return (
 		<div className="h-full w-full relative flex flex-col gap-4 items-center  ">
 			{activeTab.length !== 0 && (
-				<div className="absolute z-50 w-full item-center rounded-md h-full justify-center flex flex-row  bg-opacity-80 p-4 bg-white">
+				<div className="absolute z-50 w-full item-center  h-full justify-center flex flex-row  bg-white/80 p-4 ">
 					<Transactions transactions={activeTab}></Transactions>
 					<div
 						onClick={() => {
@@ -299,6 +298,10 @@ export default function EDHome() {
 									.sort((a, b) => b.value - a.value) // Remove Salary first
 									.map((category) => (
 										<div
+											onClick={() => {
+												const transactions = filteredData.filter((entry) => entry.category === category.category)
+												setActiveTab([siteThemeColorHex, category.category, transactions])
+											}}
 											key={category.category}
 											className="relative group  w-[calc((100%-4rem)/5)]  flex  p-4 bg-white items-center justify-center cursor-pointer  shadow-md transition-all duration-500 ease-in-out hover:shadow-xl">
 											{/* Tooltip */}
@@ -316,12 +319,7 @@ export default function EDHome() {
                  							 border-b-red-200"></div>
 											</div>
 											{/* CategoryTile */}
-											<div
-												onClick={() => {
-													const transactions = filteredData.filter((entry) => entry.category === category.category)
-													setActiveTab([siteThemeColorHex, category.category, transactions])
-												}}
-												className="flex w-1/5 bg-white text-center flex-col items-center rounded-md justify-center">
+											<div className="flex w-1/5 bg-white text-center flex-col items-center rounded-md justify-center">
 												<div className="  ">
 													{
 														<Icons

@@ -1,5 +1,3 @@
-import React from "react"
-
 export default function TechnologiesUsed() {
 	return (
 		<div className="flex flex-col gap-2 p-4  rounded-md h-[800px] w-full ">

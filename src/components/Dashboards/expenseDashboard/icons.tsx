@@ -1,4 +1,3 @@
-import React from "react"
 import {Bulb, HomeMinus, Heartbeat, ShoppingBag, Shield, CreditCard, ReportMedical, GardenCart, Coffee, Car, Cash} from "tabler-icons-react"
 
 interface IconsProps {

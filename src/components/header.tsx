@@ -1,11 +1,18 @@
-import React from "react"
 import {FaLinkedin, FaGithub} from "react-icons/fa"
+import {scrollIntoView} from "framer-motion"
 
 export default function Header({bgColor}) {
+	function handleClick(ref) {
+		ref.current.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		})
+	}
+
 	return (
 		<div
 			id="header"
-			className={`flex ${bgColor}  items-center justify-center text-white  h-24`}>
+			className={`flex ${bgColor}  items-center justify-center text-white h-24`}>
 			<div className="flex w-[1080px] justify-between text-xl font-normal">
 				<a
 					className=" text-xl font-bold"
@@ -16,9 +23,9 @@ export default function Header({bgColor}) {
 					<div
 						id="headerOptions"
 						className=" flex gap-4">
-						<a href="#about">About</a>
-						<a href="#portfolio">Portfolio</a>
-						<a href="#contact">Contact</a>
+						{/* <div onClick={handleClick(aboutRef)}>About</div>
+						<div onClick={handleClick(portfolioRef)}>Portfolio</div>
+						<div onClick={handleClick(contactRef)}>Contact</div> */}
 					</div>
 					<div
 						id="linkedin"
