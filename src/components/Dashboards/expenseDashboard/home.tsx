@@ -1,8 +1,7 @@
 import {data} from "../../../data/expenditure_income"
 import {useState, useEffect} from "react"
 import {useLocation} from "react-router-dom"
-import * as d3 from "d3"
-import EDHome from "./edHome"
+import {timeFormat} from "d3-time-format"import EDHome from "./edHome"
 import EdAdvancedView from "./edAdvancedView"
 import TechnologiesUsed from "./technologiesUsed"
 import History from "./history"
@@ -23,7 +22,7 @@ const filterByDate = (data, startDate, endDate) => {
 export default function ExpenseDashboard() {
 	const [isDarkMode, setIsDarkMode] = useState(false)
 	const location = useLocation() // Get updated URL dynamically
-	const formatDate = d3.timeFormat("%Y-%m-%d")
+	const formatDate = timeFormat("%Y-%m-%d")
 	const [dateRange, setDateRange] = useState({
 		startDate: formatDate(new Date(new Date().getFullYear(), 0, 1)),
 		endDate: formatDate(new Date()),

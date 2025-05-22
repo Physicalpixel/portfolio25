@@ -1,6 +1,6 @@
 import {useState} from "react"
 import {useSearchParams} from "react-router-dom"
-import * as d3 from "d3"
+import {timeFormat} from "d3-time-format"
 
 import {ChevronRight, ChevronLeft, Calendar} from "tabler-icons-react"
 
@@ -10,7 +10,7 @@ const currentMonth = new Date().getMonth()
 
 export default function MonthPicker({siteThemeColor, onChange}) {
 	const [searchParams, setSearchParams] = useSearchParams()
-	const formatDate = d3.timeFormat("%Y-%m-%d")
+	const formatDate = timeFormat("%Y-%m-%d")
 	const [month, setMonth] = useState(new Date().getMonth())
 	const [year, setYear] = useState(currentYear)
 	const [open, setOpen] = useState(false)

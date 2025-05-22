@@ -6,7 +6,7 @@ import {GrCafeteria, GrNext, GrPrevious} from "react-icons/gr"
 
 import {FaHandHoldingDollar, FaSackDollar, FaMoneyBillTrendUp, FaHeart} from "react-icons/fa6"
 import {X} from "tabler-icons-react"
-import * as d3 from "d3"
+import {timeFormat} from "d3-time-format"
 import Icons from "./icons.tsx"
 import Transactions from "./transactions.tsx"
 import {spentGaugeOption} from "./echartChartOptions.tsx"
@@ -77,8 +77,8 @@ const findTopMerchant = (data) => {
 export default function EDHome() {
 	const [isDarkMode, setIsDarkMode] = useState(false)
 	const location = useLocation() // Get updated URL dynamically
-	const formatDate = d3.timeFormat("%Y-%m-%d")
-	const dateTextFormat = d3.timeFormat("%b %d, %Y")
+	const formatDate = timeFormat("%Y-%m-%d")
+	const dateTextFormat = timeFormat("%b %d, %Y")
 
 	const [dateRange, setDateRange] = useState({
 		startDate: formatDate(new Date(new Date().getFullYear(), new Date().getMonth(), 1)),
