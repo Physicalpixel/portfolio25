@@ -77,7 +77,7 @@ export default function ParticlesBG() {
 					},
 				},
 			}}
-			className="absolute inset-0 z-0"
+			className="absolute inset-0 z-0 h-full w-full"
 		/>
 	)
 }
