@@ -1,6 +1,3 @@
-import type {LinksFunction} from "@remix-run/node"
-import lwmHref from "../styles/lwm.css/?url"
-
 import {ChevronDown} from "tabler-icons-react"
 
 import "../styles/lwm.css"
