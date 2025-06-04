@@ -154,8 +154,8 @@ export default function History() {
 	// if the year selected is less than current year, then filter the data for the entire year
 
 	return (
-		<div className="h-full w-full relative flex flex-col gap-4 items-center  ">
-			{activeTab.length !== 0 && (
+		<div className="h-screen w-full relative flex flex-col gap-4 items-center  ">
+			{/* {activeTab.length !== 0 && (
 				<div className="absolute z-50 w-full item-center rounded-md h-full justify-center flex flex-row  bg-opacity-80 p-4 bg-white">
 					<Transactions transactions={activeTab}></Transactions>
 					<div
@@ -177,7 +177,7 @@ export default function History() {
 					<div className="w-full flex gap-4">
 						<div
 							id="totalSpentEmoji"
-							className="">
+							className="flex gap-4">
 							<HomeTile
 								status={emojiStatus}
 								month={monthName}
@@ -185,10 +185,33 @@ export default function History() {
 								siteThemeColor={siteThemeColorHex}
 								comment={totalSpentComment}
 								chart={""}></HomeTile>
+							<HomeTile
+								status={""}
+								month={"July"}
+								totalMoney={null}
+								siteThemeColor={""}
+								comment={""}
+								chart={""}></HomeTile>
+							<HomeTile
+								status={""}
+								month={"July"}
+								totalMoney={null}
+								siteThemeColor={""}
+								comment={""}
+								chart={""}></HomeTile>
+							<HomeTile
+								status={""}
+								month={"July"}
+								totalMoney={null}
+								siteThemeColor={""}
+								comment={""}
+								chart={""}></HomeTile>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
+
+			<div className="font-semibold text-6xl opacity-25 ">Work in Progress...</div>
 		</div>
 	)
 }

@@ -118,8 +118,8 @@ export default function EdAdvancedView() {
 	}
 
 	return (
-		<div className="h-full w-full flex flex-col gap-4 items-center">
-			<div
+		<div className="h-screen w-full flex flex-col gap-4 items-center">
+			{/* <div
 				id="section4"
 				className=" w-full flex gap-4">
 				<ChartTile
@@ -131,7 +131,8 @@ export default function EdAdvancedView() {
 				<ChartTile
 					title={"Top Merchants"}
 					chart={<ReactECharts option={optionsIncomeVsSpent} />}></ChartTile>
-			</div>
+			</div> */}
+			<div className="font-semibold text-6xl opacity-25 ">Work in Progress...</div>
 		</div>
 	)
 }

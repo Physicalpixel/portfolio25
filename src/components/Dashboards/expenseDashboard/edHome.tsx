@@ -344,7 +344,7 @@ export default function EDHome() {
 				</div>
 
 				<div
-					className="bg-red-200 h-24 rounded-md flex items-center justify-center text-red-100 font-semibold text-3xl"
+					className="bg-slate-200 h-10 rounded-md flex items-center justify-center text-white  text-3xl"
 					id="section3">
 					Footer section
 				</div>

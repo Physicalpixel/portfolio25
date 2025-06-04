@@ -9,6 +9,11 @@ export default function Index() {
 	const targetRef = useRef(null)
 	const blueRef = useRef(null)
 	const portfolioCardRef = useRef(null)
+	const aboutRef = useRef(null)
+	const portfolioRef = useRef(null)
+	const contactRef = useRef(null)
+	const contactCopyOnClickRef = useRef(null)
+
 	const [portfolioCardWidth, setPortfolioCardWidth] = useState(0)
 	useEffect(
 		() => {
@@ -21,7 +26,6 @@ export default function Index() {
 			//here its multiplied by 8 because the gap between each div is 4 which is equal to 8px
 			const childWidth = children[0].getBoundingClientRect().width + (children.length - 1) * 8
 
-			console.log(childWidth)
 			// Calculate total width = childWidth * number of children
 			const totalWidth = childWidth * children.length
 
@@ -36,18 +40,15 @@ export default function Index() {
 		target: targetRef,
 		offset: ["start start", "end end"],
 	})
-	useMotionValueEvent(scrollY, "change", () => {
-		console.log(scrollY.get())
-	})
+	useMotionValueEvent(scrollY, "change", () => {})
 
 	const handleClick = () => {
 		blueRef.current?.scrollIntoView({behavior: "smooth"})
 	}
-	const divRef = useRef(null)
 	const [showPopover, setShowPopover] = useState(false)
 	const handleCopy = async () => {
 		try {
-			const text = divRef.current?.innerText
+			const text = contactCopyOnClickRef.current?.innerText
 			if (text) {
 				await navigator.clipboard.writeText(text)
 				setShowPopover(true)
@@ -61,13 +62,23 @@ export default function Index() {
 		}
 	}
 
+	const scrollToSection = (sectionIndex) => {
+		console.log(sectionIndex)
+		window.scrollTo({
+			top: timeline[sectionIndex][0], // scroll to exact scrollY start of section
+			behavior: "smooth",
+		})
+	}
+
 	const bgColors = ["bg-red-400", "bg-blue-400", "bg-purple-400"]
 	const contents = [
-		<div className="w-full h-full flex md:flex-row flex-col items-center justify-between ">
+		<div
+			ref={aboutRef}
+			className="w-full h-full flex md:flex-row flex-col items-center justify-between ">
 			<div className="flex flex-col  md:w-1/2 w-full md:p-0 p-4">
 				<div className="md:text-8xl text-xl font-bold md:text-center">A little about myself!</div>
 				<div className="md:w-1/2 w-full text-left flex flex-col text-lg justify-center items-center m-auto mt-10 mb-10">
-					<p>Hi! I'm a front-end and data visualization developer who thrives at the intersection of design and function. I build clean, responsive, and accessible web interfaces using modern frameworks like React, combined with strong UI/UX principles. This website is a mix of things I have built, explored and my journey as a devloper. If I'm not coding, I'm probably out somewhere with a camera, pretending I know what I'm doing.</p>
+					<p>Hi! I'm a front-end and data visualization developer who thrives at the intersection of design and function. I build clean, responsive, and accessible web interfaces using modern frameworks like React, combined with strong UI/UX principles. This website is a mix of things I have built, explored and my journey as a developer. Off the dev clock, I'm probably out somewhere with a camera, pretending to know what I'm doing.</p>
 				</div>
 			</div>
 			<div className="flex gap-6 w-1/2 items-center text-white justify-center ">
@@ -107,7 +118,9 @@ export default function Index() {
 				</Link>
 			</div>
 		</div>,
-		<div className="w-full h-full flex md:flex-row flex-col items-center justify-between ">
+		<div
+			ref={portfolioRef}
+			className="w-full h-full flex md:flex-row flex-col items-center justify-between ">
 			<div className="flex flex-col  md:w-1/2 w-full md:p-0 p-4">
 				<div className="md:text-8xl text-xl font-bold text-center">Portfolio</div>
 				<div className="md:w-1/2 w-full text-center flex flex-col text-lg justify-center items-center m-auto mt-10 mb-10">
@@ -182,14 +195,21 @@ export default function Index() {
 			</div>
 		</div>,
 
-		<div className="w-full h-full flex md:flex-row flex-col items-center justify-between">
+		<div
+			ref={contactRef}
+			className="w-full h-full flex md:flex-row flex-col items-center justify-between">
 			<div className="flex flex-col  md:w-1/2 w-full md:p-0 p-4">
 				<div className="md:text-8xl text-xl font-bold text-center">Get in touch!</div>
+				<div className="md:w-1/2 w-full text-left flex flex-col text-lg justify-center items-center m-auto mt-10 mb-10">
+					<div>
+						<p>I’d love to hear from you whether you want to chat, collaborate, give feedback, or just ask a question. Don’t hesitate to reach out. I’m always around and excited to connect!</p>
+					</div>
+				</div>
 			</div>
 			<div className="md:w-1/2 w-full text-left flex flex-col text-lg justify-center items-center m-auto mt-10 mb-10">
 				Please feel free to get in touch via email&nbsp;
 				<span
-					ref={divRef}
+					ref={contactCopyOnClickRef}
 					onClick={handleCopy}
 					className="text-fuchsia-400 cursor-pointer">
 					preethi.karan91@gmail.com
@@ -202,7 +222,7 @@ export default function Index() {
 				</Link>
 				.
 			</div>
-			{showPopover && <div className=" absolute left-[50%] bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">Copied!</div>}
+			{showPopover && <div className=" absolute left-[70%] bg-gray-800 text-white text-sm px-4 py-2 rounded shadow-lg">Copied!</div>}
 		</div>,
 	]
 
@@ -223,7 +243,9 @@ export default function Index() {
 			className={`relative ${bgColor} overflow-x-hidden`}>
 			<ParticlesBG></ParticlesBG>
 			<div className="fixed top-0 w-full z-[99]">
-				<Header bgColor={""}></Header>
+				<Header
+					handleClick={scrollToSection}
+					bgColor={""}></Header>
 			</div>
 			<motion.div
 				style={{scale: animation[0].scale, opacity: animation[0].opacity}}

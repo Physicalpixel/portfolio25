@@ -1,14 +1,6 @@
 import {FaLinkedin, FaGithub} from "react-icons/fa"
-import {scrollIntoView} from "framer-motion"
 
-export default function Header({bgColor}) {
-	function handleClick(ref) {
-		ref.current.scrollIntoView({
-			behavior: "smooth",
-			block: "start",
-		})
-	}
-
+export default function Header({bgColor, handleClick}) {
 	return (
 		<div
 			id="header"
@@ -19,31 +11,45 @@ export default function Header({bgColor}) {
 					href="/">
 					PhysicalPixel
 				</a>
-				<div className="flex gap-8">
+				<div className="flex gap-12">
 					<div
 						id="headerOptions"
-						className=" flex gap-4">
-						<div>About</div>
-						<div>Portfolio</div>
-						<div>Contact</div>
+						className=" flex gap-8">
+						<div
+							className="cursor-pointer"
+							onClick={() => handleClick(1)}>
+							about
+						</div>
+						<div
+							className="cursor-pointer"
+							onClick={() => handleClick(2)}>
+							portfolio
+						</div>
+						<div
+							className="cursor-pointer"
+							onClick={() => handleClick(3)}>
+							contact
+						</div>
 					</div>
-					<div
-						id="linkedin"
-						className=" flex gap-4">
-						<a
-							href="https://www.linkedin.com/in/preethikaran91/"
-							target="_blank">
-							<FaLinkedin className="text-3xl" />
-						</a>
-					</div>
-					<div
-						id="github"
-						className=" flex gap-4">
-						<a
-							href="https://github.com/Physicalpixel"
-							target="_blank">
-							<FaGithub className="text-3xl" />
-						</a>
+					<div className="flex gap-5">
+						<div
+							id="linkedin"
+							className=" flex gap-4">
+							<a
+								href="https://www.linkedin.com/in/preethikaran91/"
+								target="_blank">
+								<FaLinkedin className="text-3xl" />
+							</a>
+						</div>
+						<div
+							id="github"
+							className=" flex gap-4">
+							<a
+								href="https://github.com/Physicalpixel"
+								target="_blank">
+								<FaGithub className="text-3xl" />
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

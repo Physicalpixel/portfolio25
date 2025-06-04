@@ -17,7 +17,7 @@ export default function ParticlesBG() {
 	}, [])
 
 	const particlesLoaded = async (container?: Container) => {
-		console.log("Particles container loaded:", container)
+		// console.log("Particles container loaded:", container)
 	}
 
 	if (!init) return null
@@ -31,7 +31,7 @@ export default function ParticlesBG() {
 				background: {color: ""},
 				particles: {
 					number: {value: 500},
-					size: {value: 2},
+					size: {value: 2.3},
 					shape: {type: "square"},
 					color: {
 						value: [
