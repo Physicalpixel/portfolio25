@@ -13,7 +13,7 @@ export default function Header({bgColor}) {
 		<div
 			id="header"
 			className={`flex ${bgColor}  items-center justify-center text-white h-24`}>
-			<div className="flex w-[1080px] justify-between text-xl font-normal">
+			<div className="flex w-[90%] justify-between text-xl font-normal">
 				<a
 					className=" text-xl font-bold"
 					href="/">
@@ -23,9 +23,9 @@ export default function Header({bgColor}) {
 					<div
 						id="headerOptions"
 						className=" flex gap-4">
-						{/* <div onClick={handleClick(aboutRef)}>About</div>
-						<div onClick={handleClick(portfolioRef)}>Portfolio</div>
-						<div onClick={handleClick(contactRef)}>Contact</div> */}
+						<div>About</div>
+						<div>Portfolio</div>
+						<div>Contact</div>
 					</div>
 					<div
 						id="linkedin"
