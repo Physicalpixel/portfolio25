@@ -1,0 +1,1 @@
+import{j as e}from"./index-BeuGr4WD.js";function s(){return e.jsx("div",{className:"flex items-center justify-center h-screen",children:e.jsx("h1",{className:"text-4xl font-bold",children:"Test Route"})})}export{s as default};
