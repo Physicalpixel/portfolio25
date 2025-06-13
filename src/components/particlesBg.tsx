@@ -4,7 +4,7 @@ import type {Container} from "@tsparticles/engine"
 import {loadSlim} from "@tsparticles/slim"
 import {loadOpacityUpdater} from "@tsparticles/updater-opacity"
 
-export default function ParticlesBG() {
+export default function ParticlesBG({particlesCount}) {
 	const [init, setInit] = useState(false)
 
 	useEffect(() => {
@@ -30,8 +30,8 @@ export default function ParticlesBG() {
 				fullScreen: {enable: true},
 				background: {color: ""},
 				particles: {
-					number: {value: 500},
-					size: {value: 2.3},
+					number: {value: particlesCount},
+					size: {value: 2.5},
 					shape: {type: "square"},
 					color: {
 						value: [
@@ -57,12 +57,12 @@ export default function ParticlesBG() {
 					move: {enable: true, speed: 1},
 					opacity: {
 						value: {
-							min: 0.05,
-							max: 0.9,
+							min: 0,
+							max: 0.8,
 						},
 						animation: {
 							enable: true,
-							speed: 1.5,
+							speed: 0.2,
 							startValue: "random",
 							sync: false,
 						},
@@ -73,7 +73,7 @@ export default function ParticlesBG() {
 						onHover: {enable: true, mode: "repulse"},
 					},
 					modes: {
-						repulse: {distance: 100},
+						repulse: {distance: 350},
 					},
 				},
 			}}

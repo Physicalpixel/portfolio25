@@ -7,12 +7,12 @@ import {GrCafeteria, GrNext, GrPrevious} from "react-icons/gr"
 import {FaHandHoldingDollar, FaSackDollar, FaMoneyBillTrendUp, FaHeart} from "react-icons/fa6"
 import {X} from "tabler-icons-react"
 import {timeFormat} from "d3-time-format"
-import Icons from "./icons.tsx"
-import Transactions from "./transactions.tsx"
-import {spentGaugeOption} from "./echartChartOptions.tsx"
-import HomeTile from "./homeTile.tsx"
-import Tile from "./tile.tsx"
-import ChartTile from "./chartTile.tsx"
+import Icons from "./icons"
+import Transactions from "./transactions"
+import {spentGaugeOption} from "./echartChartOptions"
+import HomeTile from "./homeTile"
+import Tile from "./tile"
+import ChartTile from "./chartTile"
 
 interface EDHome {
 	merchant_name: any
