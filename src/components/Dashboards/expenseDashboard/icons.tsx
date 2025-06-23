@@ -1,4 +1,4 @@
-import {Bulb, HomeMinus, Heartbeat, ShoppingBag, Shield, CreditCard, ReportMedical, GardenCart, Coffee, Car, Cash} from "tabler-icons-react"
+import {IconHomeMinus, IconBulb, IconCreditCard, IconShield, IconReportMedical, IconGardenCart, IconCar, IconCash, IconShoppingBag, IconCoffee, IconHeartbeat} from "@tabler/icons-react"
 
 interface IconsProps {
 	category: string
@@ -8,104 +8,104 @@ interface IconsProps {
 export default function Icons({category, color}: IconsProps) {
 	let icon
 	let iconSize = 35
-	let strokeWidth = 1.4
+	let strokeWidth = 1.2
 	switch (category) {
 		case "Mortgage":
 			icon = (
-				<HomeMinus
+				<IconHomeMinus
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Utility":
 			icon = (
-				<Bulb
+				<IconBulb
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Cash Withdrawal":
 			icon = (
-				<CreditCard
+				<IconCreditCard
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Insurance":
 			icon = (
-				<Shield
+				<IconShield
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Medical":
 			icon = (
-				<ReportMedical
+				<IconReportMedical
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Shopping":
 			icon = (
-				<ShoppingBag
+				<IconShoppingBag
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Cab":
 			icon = (
-				<Car
+				<IconCar
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Grocery":
 			icon = (
-				<GardenCart
+				<IconGardenCart
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Food":
 			icon = (
-				<Coffee
+				<IconCoffee
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Wellness":
 			icon = (
-				<Heartbeat
+				<IconHeartbeat
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break
 		case "Salary":
 			icon = (
-				<Cash
+				<IconCash
 					style={{color}}
 					strokeWidth={strokeWidth}
-					size={iconSize}
+					className=" lg:w-8 lg:h-8 w-4 h-4"
 				/>
 			)
 			break

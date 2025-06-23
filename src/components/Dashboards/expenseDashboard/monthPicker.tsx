@@ -57,9 +57,9 @@ export default function MonthPicker({siteThemeColor, onChange}) {
 	}
 
 	return (
-		<div className="flex items-center gap-4 shadow-md">
+		<div className="sm:pt-0 pt-4">
 			<div
-				className=" text-center w-52 justify-between cursor-pointer flex gap-10 p-2 bg-white"
+				className=" text-center justify-between cursor-pointer flex gap-10 p-4 shadow-md bg-white lg:rounded-none rounded-xl"
 				onClick={() => setOpen(!open)}>
 				<div>
 					{months[month]}, {year}
@@ -70,7 +70,7 @@ export default function MonthPicker({siteThemeColor, onChange}) {
 					}}></Calendar>
 			</div>
 			{open && (
-				<div className="absolute z-10  top-[6.5%] bg-white shadow-md  flex flex-col items-center p-4 ">
+				<div className="absolute z-10  top-[6.5%] sm:right-auto right-[3%] bg-white shadow-md  flex flex-col items-center p-4 ">
 					<div className="flex items-center gap-2 justify-between w-full">
 						<ChevronLeft
 							onClick={() => handleYearChange(-1)}

@@ -6,7 +6,7 @@ interface TransactionProps {
 
 export default function Transactions({transactions}: TransactionProps) {
 	return (
-		<div className="h-4/6 w-[700px] p-4 shadow-2xl gap-2 flex-col flex  rounded-md bg-white ">
+		<div className="lg:h-4/6 h-3/6 w-[700px] p-4 shadow-2xl gap-2 flex-col flex  rounded-md bg-white ">
 			<div className="text-slate-700 border-b-1  border-b-slate-800 font-semibold text-3xl pb-2">Your Transactions</div>
 			<div className=" overflow-y-auto">
 				{transactions[2].map((transaction) => {

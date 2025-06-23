@@ -29,9 +29,12 @@ export default function ExpenseDashboard() {
 		startDate: formatDate(new Date(new Date().getFullYear(), 0, 1)),
 		endDate: formatDate(new Date()),
 	})
-	const siteThemeColorTailwind = "bg-indigo-400"
-	const siteThemeColorHex = "#818cf8" //hex for indigo-500
+
+	const siteThemeColorHex = "#6366f1" //hex for indigo-500
 	const [activeTab, setActiveTab] = useState("home")
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	useEffect(() => {
 		const url = new URL(window.location.origin + location.search)
@@ -41,31 +44,38 @@ export default function ExpenseDashboard() {
 	}, [location.search]) // Re-run when the URL changes
 
 	return (
-		<div className="h-screen overflow-hidden">
-			<div className="top-0 left-0 w-full z-99">
-				<Header bgColor={siteThemeColorTailwind}></Header>
+		<div className="h-screen overflow-hidden bg-slate-100 p-4">
+			<div className="top-0 fixed left-0 w-full z-[99]">
+				<Header
+					textColor={"text-slate-800"}
+					bgColor={"bg-slate-100"}></Header>
 			</div>
-			<div className={`pr-40 pl-40 pt-10  tracking-[0.02em] ${siteThemeColorTailwind} `}>
-				<div className="flex w-full relative z-10 h-full p-10 bg-slate-100  rounded-xl shadow-lg ">
-					<div className="h-full w-full flex flex-col gap-4 items-center">
-						<div
-							id="dashboardName"
-							className="font-bold flex w-full text-xl "
-							style={{
-								color: `${siteThemeColorHex}`,
-							}}>
-							ExpenseSight
+			<div className="max-w-7xl pt-[100px] mx-auto">
+				<div className="mb-8">
+					<div className="flex sm:flex-row flex-col sm:justify-between">
+						<div>
+							<h1 className="text-4xl font-bold text-slate-800 mb-2">ExpenseSight</h1>
+							<p className="text-slate-800">Interactive dashboard of daily spending trends by month.</p>
 						</div>
+						<MonthPicker
+							siteThemeColor={siteThemeColorHex}
+							onChange={(month, year) => {
+								// You can handle the selected month/year here
+								console.log(`Selected: ${month}/${year}`)
+							}}
+						/>
+					</div>
 
+					<div className="h-full w-full pt-6 flex flex-col gap-4 items-center">
 						<div
 							id="section1"
-							className="flex w-full justify-between">
-							<div className="flex gap-4 text-lg ">
+							className="flex  rounded  w-full gap-4 sm:gap-0  flex-col sm:flex-row sm:justify-between">
+							<div className="flex gap-6 text-lg ">
 								<div
 									onClick={() => {
 										setActiveTab("home")
 									}}
-									className="relative p-2 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
+									className="relative text-slate-800 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
 									Home
 									{activeTab === "home" && (
 										<span
@@ -78,7 +88,7 @@ export default function ExpenseDashboard() {
 									onClick={() => {
 										setActiveTab("history")
 									}}
-									className="relative p-2 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
+									className="relative text-slate-800 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
 									History
 									{activeTab === "history" && (
 										<span
@@ -92,7 +102,7 @@ export default function ExpenseDashboard() {
 									onClick={() => {
 										setActiveTab("advanced")
 									}}
-									className="relative p-2 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
+									className="relative text-slate-800 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
 									Advanced
 									{activeTab === "advanced" && (
 										<span
@@ -106,7 +116,7 @@ export default function ExpenseDashboard() {
 									onClick={() => {
 										setActiveTab("techno")
 									}}
-									className="relative p-2 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
+									className="relative text-slate-800 hover:bg-indigo-100 text-[15px] hover:cursor-pointer">
 									Tech Used
 									{activeTab === "techno" && (
 										<span
@@ -125,15 +135,8 @@ export default function ExpenseDashboard() {
                      }}>
                      dark mode
                   </button> */}
-							<MonthPicker
-								siteThemeColor={siteThemeColorHex}
-								onChange={(month, year) => {
-									// You can handle the selected month/year here
-									console.log(`Selected: ${month}/${year}`)
-								}}
-							/>
 						</div>
-						<div className="w-full">
+						<div className="w-full pt-4">
 							{activeTab === "home" && (
 								<div
 									className="overflow-y-auto scrollbar-custom"

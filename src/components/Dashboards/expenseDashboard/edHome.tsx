@@ -13,6 +13,8 @@ import {spentGaugeOption} from "./echartChartOptions"
 import HomeTile from "./homeTile"
 import Tile from "./tile"
 import ChartTile from "./chartTile"
+import HeatmapNivo from "./heatmapNivo"
+import sampleData from "../../../data/sampleData"
 
 interface EDHome {
 	merchant_name: any
@@ -48,7 +50,7 @@ const filterAndSumByDate = (data, year) => {
 	})
 
 	for (const [date, sum] of Object.entries(sumByDate)) {
-		result.push([date, sum])
+		result.push({value: sum, day: date})
 	}
 
 	return result
@@ -85,7 +87,8 @@ export default function EDHome() {
 		endDate: formatDate(new Date()),
 	})
 	const siteThemeColorTailwind = "bg-indigo-400"
-	const siteThemeColorHex = "#818cf8" //hex for indigo-500
+	const siteThemeColorHex = "#FFFFFF" //hex for indigo-500
+	const siteThemeColorHexforSmIcons = "#c084fc"
 	const [filteredData, setFilteredData] = useState([])
 
 	const [activeTab, setActiveTab] = useState([])
@@ -123,7 +126,7 @@ export default function EDHome() {
 
 	const minDebitAmount = findMinDebitAmount(filteredData)
 	const maxDebitAmount = findMaxDebitAmount(filteredData)
-
+	console.log(filterAndSumByDate(filteredData, dateRange.endDate.split("-")[0]))
 	const optionsExpenseHeatmap = {
 		visualMap: {
 			min: minDebitAmount,
@@ -238,9 +241,9 @@ export default function EDHome() {
 		totalSpentComment = `$${ifOverSpending} over typical spending`
 	}
 	return (
-		<div className="h-full w-full relative flex flex-col gap-4 items-center  ">
+		<div className="h-full w-full relative flex flex-col gap-4 items-center">
 			{activeTab.length !== 0 && (
-				<div className="absolute z-50 w-full item-center  h-full justify-center flex flex-row  bg-white/80 p-4 ">
+				<div className="absolute z-50 w-full item-center  h-full justify-center flex flex-row bg-white/80 p-4 ">
 					<Transactions transactions={activeTab}></Transactions>
 					<div
 						onClick={() => {
@@ -250,105 +253,93 @@ export default function EDHome() {
 						<X
 							strokeWidth={4}
 							size={30}
-							className="text-slate-800 text-xl  bg-red-200 rounded-md p-1"></X>
+							className="text-slate-800 text-xl bg-red-200 rounded-md p-1"></X>
 					</div>
 				</div>
 			)}
-			<div className="w-full h-full flex flex-col gap-4 pr-2 ">
-				<div
-					id="section2"
-					className="flex gap-4  w-full">
-					<div className="w-full flex gap-4">
-						<div
-							id="totalSpentEmoji"
-							className="">
-							<HomeTile
-								status={emojiStatus}
-								month={monthName}
-								totalMoney={totalMoneySpent}
-								siteThemeColor={siteThemeColorHex}
-								comment={totalSpentComment}
-								chart={""}></HomeTile>
-						</div>
-						<div className="flex-col w-full flex gap-4">
-							<div className=" flex gap-4  ">
-								<Tile
-									siteThemeColor={siteThemeColorHex}
-									title={"Total Received"}
-									value={totalMoneyReceived}
-									icon={<FaHandHoldingDollar className="w-full h-full p-1" />}
-								/>
-								<Tile
-									siteThemeColor={siteThemeColorHex}
-									title={"Total Balance"}
-									value={totalBalance}
-									icon={<FaSackDollar className="w-full h-full p-1" />}
-								/>
 
-								<Tile
-									siteThemeColor={siteThemeColorHex}
-									title={"Top Expense"}
-									value={topMerchant.merchant}
-									icon={<FaMoneyBillTrendUp className="w-full h-full p-1" />}
-								/>
-							</div>
-							<div className=" gap-4 flex flex-wrap  h-full w-full">
-								{categoriesList
-									.filter((category) => category.category !== "Salary")
-									.sort((a, b) => b.value - a.value) // Remove Salary first
-									.map((category) => (
-										<div
-											onClick={() => {
-												const transactions = filteredData.filter((entry) => entry.category === category.category)
-												setActiveTab([siteThemeColorHex, category.category, transactions])
-											}}
-											key={category.category}
-											className="relative group  w-[calc((100%-4rem)/5)]  flex  p-4 bg-white items-center justify-center cursor-pointer  shadow-md transition-all duration-500 ease-in-out hover:shadow-xl">
-											{/* Tooltip */}
-											<div
-												className="absolute top-full left-1/2 z-10 transform -translate-x-1/2 
+			<div className="grid md:grid-cols-2 grid-cols-1 grid-rows-3 gap-4 w-full">
+				<div className="rounded-lg row-span-3">
+					<HomeTile
+						status={emojiStatus}
+						month={monthName}
+						totalMoney={totalMoneySpent}
+						siteThemeColor={siteThemeColorHex}
+						comment={totalSpentComment}
+						chart={""}
+					/>
+				</div>
+				<div className=" rounded-lg h-32">
+					<Tile
+						siteThemeColor={siteThemeColorHex}
+						title={"Total Received"}
+						value={totalMoneyReceived}
+						icon={<FaHandHoldingDollar className="text-5xl bg-indigo-100 text-indigo-400 p-2" />}
+					/>
+				</div>
+				<div className=" rounded-lg h-32">
+					<Tile
+						siteThemeColor={siteThemeColorHex}
+						title={"Total Balance"}
+						value={totalBalance}
+						icon={<FaSackDollar className="text-5xl bg-blue-100 text-blue-400 p-2" />}
+					/>
+				</div>
+				<div className=" rounded-lg h-32">
+					<Tile
+						siteThemeColor={siteThemeColorHex}
+						title={"Top Expense"}
+						value={topMerchant.merchant}
+						icon={<FaMoneyBillTrendUp className=" bg-purple-100 text-purple-400 text-5xl p-2" />}
+					/>
+				</div>
+			</div>
+			<div className=" gap-4 flex flex-wrap h-full w-full">
+				{categoriesList
+					.filter((category) => category.category !== "Salary")
+					.sort((a, b) => b.value - a.value) // Remove Salary first
+					.map((category) => (
+						<div
+							onClick={() => {
+								const transactions = filteredData.filter((entry) => entry.category === category.category)
+								setActiveTab([siteThemeColorHex, category.category, transactions])
+							}}
+							key={category.category}
+							className="relative group  w-[calc((100%-4rem)/5)]  lg:rounded-none rounded-xl flex  p-4 bg-white items-center justify-center cursor-pointer  shadow-md transition-all duration-500 ease-in-out hover:shadow-xl">
+							{/* Tooltip */}
+							<div
+								className="absolute top-full left-1/2 z-10 transform -translate-x-1/2 
                						 bg-red-200 text-slate-800 text-center  p-2 
                							opacity-0 group-hover:opacity-100 text-sm 
                							invisible group-hover:visible 
                							transition-all duration-500 ease-in-out 
                							shadow-xl ">
-												{category.desc} {/* Tooltip content */}
-												<div
-													className="absolute bottom-full left-1/2 transform -translate-x-1/2 
+								{category.desc} {/* Tooltip content */}
+								<div
+									className="absolute bottom-full left-1/2 transform -translate-x-1/2 
                  								w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent 
                  							 border-b-red-200"></div>
-											</div>
-											{/* CategoryTile */}
-											<div className="flex w-1/5 bg-white text-center flex-col items-center rounded-md justify-center">
-												<div className="  ">
-													{
-														<Icons
-															category={category.category}
-															color={`${siteThemeColorHex}`}
-														/>
-													}
-												</div>
-												<div className="font-normal text-slate-800"> ${category.value}</div>
-											</div>
-										</div>
-									))}
+							</div>
+							{/* CategoryTile */}
+							<div className="flex w-1/5  bg-white text-center flex-col items-center  justify-center">
+								<div className="  ">
+									{
+										<Icons
+											category={category.category}
+											color={`${siteThemeColorHexforSmIcons}`}
+										/>
+									}
+								</div>
+								<div className="font-semibold text-slate-800"> ${category.value}</div>
 							</div>
 						</div>
-					</div>
-				</div>
-
-				<div id="section3">
-					<ChartTile
-						title={"Yearly Activity"}
-						chart={<ReactECharts option={optionsExpenseHeatmap} />}></ChartTile>
-				</div>
-
-				<div
-					className="bg-slate-200 h-10 rounded-md flex items-center justify-center text-white  text-3xl"
-					id="section3">
-					Footer section
-				</div>
+					))}
 			</div>
+
+			<HeatmapNivo
+				data={filterAndSumByDate(filteredData, dateRange.endDate.split("-")[0])}
+				fromDate={dateRange.startDate}
+				toDate={dateRange.endDate}></HeatmapNivo>
 		</div>
 	)
 }

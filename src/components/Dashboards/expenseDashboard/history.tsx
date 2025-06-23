@@ -154,7 +154,7 @@ export default function History() {
 	// if the year selected is less than current year, then filter the data for the entire year
 
 	return (
-		<div className="h-screen w-full relative flex flex-col gap-4 items-center  ">
+		<div className="h-full w-full relative flex flex-col gap-4 items-center ">
 			{/* {activeTab.length !== 0 && (
 				<div className="absolute z-50 w-full item-center rounded-md h-full justify-center flex flex-row  bg-opacity-80 p-4 bg-white">
 					<Transactions transactions={activeTab}></Transactions>

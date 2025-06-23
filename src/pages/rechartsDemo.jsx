@@ -124,7 +124,9 @@ export default function RechartsDemo() {
 	return (
 		<div className="min-h-screen bg-gray-900 p-6">
 			<div className="top-0 fixed left-0 w-full z-[99]">
-				<Header bgColor={"bg-gray-900"}></Header>
+				<Header
+					textColor={"text-white"}
+					bgColor={"bg-gray-900"}></Header>
 			</div>
 			<div className="max-w-7xl pt-[100px] mx-auto">
 				{/* Header */}
@@ -133,7 +135,7 @@ export default function RechartsDemo() {
 					<p className="text-gray-300">Industry insights and trends from 2020-2024</p>
 
 					{/* Controls */}
-					<div className="mt-4 flex flex-wrap gap-4 items-center">
+					<div className="mt-4 ">
 						{/* Industry Filter Dropdown */}
 						<div>
 							<label className="text-gray-300 text-sm mr-2">Filter by Industry:</label>

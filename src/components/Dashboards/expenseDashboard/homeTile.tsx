@@ -11,44 +11,43 @@ interface HomeTileProps {
 
 export default function HomeTile({status, month, siteThemeColor, comment, chart, totalMoney}: HomeTileProps) {
 	return (
-		<div className=" bg-indigo-400 text-white w-96 h-[400px] flex flex-col gap-11  items-center  shadow-md">
+		<div className={`bg-white lg:rounded-none rounded-xl h-full text-slate-800 flex md:flex-row p-6 items-center justify-center overflow-hidden border-2 shadow-md ${status === "sad" ? "border-rose-200" : status === "happy" ? "border-green-200" : "border-yellow-200"}`}>
 			{totalMoney !== null ? (
 				<>
-					<div className="flex flex-col items-center w-full">
-						<div className="flex pl-6 h-32 items-center flex-row  gap-4 w-full  text-white">
-							<div className="flex flex-col items-start">
-								<span className="text-2xl font-semibold ">Total Spent</span>
-								<span className="font-normal opacity-75">{month}, 2025</span>
-							</div>
-							<div className="opacity-100">
-								{/* green - #4ade80 rose - #f87171 yellow- #facc15 slate-100 - #f1f5f9 */}
-								{status === "happy" ? (
-									<TbMoodHappyFilled
-										size={210}
-										color={"#4ade80"}></TbMoodHappyFilled>
-								) : status === "sad" ? (
-									<TbMoodSadFilled
-										size={210}
-										color={"#f87171"}></TbMoodSadFilled>
-								) : status === "confused" ? (
-									<TbMoodEmptyFilled
-										size={210}
-										color={"#fbbf24"}></TbMoodEmptyFilled>
-								) : (
-									<TbMoodHappyFilled
-										size={210}
-										color={"#4ade80"}></TbMoodHappyFilled>
-								)}
-							</div>
+					<div className="flex md:flex-col md:items-start lg:w-1/2 w-full items-center gap-4 md:justify-start justify-between ">
+						<div className="flex flex-col  justify-center">
+							<span className="text-2xl font-semibold ">Total Spent</span>
+							<span className="font-normal opacity-75">{month}, 2025</span>
+						</div>
+						<div className="md:text-left text-center">
+							<div className="md:text-7xl  text-5xl  font-normal">${totalMoney}</div>
+							<div className="md:text-md text-sm text-wrap md:pt-0 pt-2 sm:w-auto w-32 whitespace-pre-line">{comment}</div>
 						</div>
 					</div>
-					<div>
-						<div className="text-7xl pt-8 font-normal  text-center ">${totalMoney}</div>
-						<div className="text-md text-wrap text-center  whitespace-pre-line">{comment}</div>
+
+					<div className="md:block hidden lg:pl-0 pl-6 w-1/2">
+						{/* green - #4ade80 rose - #f87171 yellow- #facc15 slate-100 - #f1f5f9 */}
+						{status === "happy" ? (
+							<TbMoodHappyFilled
+								size={320}
+								color={"#4ade80"}></TbMoodHappyFilled>
+						) : status === "sad" ? (
+							<TbMoodSadFilled
+								size={320}
+								color={"#f87171"}></TbMoodSadFilled>
+						) : status === "confused" ? (
+							<TbMoodEmptyFilled
+								size={320}
+								color={"#fbbf24"}></TbMoodEmptyFilled>
+						) : (
+							<TbMoodHappyFilled
+								size={320}
+								color={"#4ade80"}></TbMoodHappyFilled>
+						)}
 					</div>
 				</>
 			) : (
-				<div>hello</div>
+				<div>""</div>
 			)}
 		</div>
 	)

@@ -4,7 +4,7 @@ import type {Container} from "@tsparticles/engine"
 import {loadSlim} from "@tsparticles/slim"
 import {loadOpacityUpdater} from "@tsparticles/updater-opacity"
 
-export default function ParticlesBG({particlesCount}) {
+export default function ParticlesBG({particlesCount, particlesRepulseDistance}) {
 	const [init, setInit] = useState(false)
 
 	useEffect(() => {
@@ -73,7 +73,7 @@ export default function ParticlesBG({particlesCount}) {
 						onHover: {enable: true, mode: "repulse"},
 					},
 					modes: {
-						repulse: {distance: 350},
+						repulse: {distance: particlesRepulseDistance},
 					},
 				},
 			}}
