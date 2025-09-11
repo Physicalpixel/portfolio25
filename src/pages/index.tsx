@@ -101,7 +101,10 @@ export default function Index() {
 			<div className="flex flex-col justify-center  lg:pr-16 pr-0 items-center lg::w-1/2 w-full md:p-0 p-3">
 				<div className="md:text-8xl text-7xl font-bold pb-3">about</div>
 				<div className="text-lg text-justify lg:p-0 p-4">
-					<p>Hi! I'm a front-end and data visualization developer passionate about crafting responsive web experiences. I work with tools like React and various charting libraries to build interfaces that perform as well as they look. This site is a collection of the projects I've created, experiments I've run, and the path I'm carving as a developer. Off the clock, I swap pixels for pictures, still chasing the perfect frame just with a different lens. </p>
+					<p>
+						Hi! I'm a frontend developer crafting responsive, high-performance web interfaces. I create interactive, accessible applications with React, JavaScript/TypeScript, Remix, Tailwind CSS and modern front-end frameworks, compliant with web fundamentals like performance, accessibility, and responsive design. This site is a collection of the projects I've created, experiments I've run, and the path I'm carving as a developer. Off the clock, I swap pixels for pictures, still chasing
+						the perfect frame just with a different lens.
+					</p>
 				</div>
 			</div>
 			<div className="flex gap-6 lg:w-1/2 w-full items-center text-white justify-center ">
@@ -339,13 +342,11 @@ export default function Index() {
 			</div>
 			<div className="h-screen items-center justify-center flex flex-col text-white">
 				<div className="flex flex-col">
-					<div className="lg:text-[30px] text-[20px] font-serif font-normal italic flex pl-[33px] md:pl-[65px] lg:pl-[100px]">pixel-perfect wizardry in</div>
+					<div className="lg:text-[30px] text-[20px] font-serif font-normal italic flex ">pixel-perfect wizardry in</div>
 					<div className="flex items-start justify-center flex-col">
 						<div
 							className="
-						 text-[5em] md:text-[10em] lg:text-[15em] font-bold leading-[0.9]">
-							dataViz&
-						</div>
+						 text-[5em] md:text-[10em] lg:text-[15em] font-bold leading-[0.9]"></div>
 						<div
 							className="
 						text-[5em] md:text-[10em] lg:text-[15em] font-bold leading-[0.9]">
