@@ -7,6 +7,7 @@ import LwmHome from "./pages/lwmHome"
 import RechartsDemo from "./pages/rechartsDemo"
 import PerfCompare from "./pages/perfCompare"
 import StickyStackingLayout from "./pages/framerTest"
+import Crud from "./pages/crud"
 import "./index.css" // if you're using Tailwind
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -36,6 +37,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 				<Route
 					path="/framerTest"
 					element={<StickyStackingLayout />}
+				/>
+				<Route
+					path="/crud"
+					element={<Crud />}
 				/>
 			</Routes>
 		</HashRouter>
