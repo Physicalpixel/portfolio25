@@ -100,7 +100,7 @@ export default function Index() {
 			className="w-full h-full flex lg:flex-row  flex-col items-center lg:justify-between justify-center ">
 			<div className="flex flex-col justify-center  lg:pr-16 pr-0 items-center lg::w-1/2 w-full md:p-0 p-3">
 				<div className="md:text-8xl text-7xl font-bold pb-3">about</div>
-				<div className="text-lg text-justify lg:p-0 p-4">
+				<div className="text-lg lg:text-justify text-left lg:p-0 p-4">
 					<p>
 						Hi! I'm a frontend developer crafting responsive, high-performance web interfaces. I create interactive, accessible applications with React, JavaScript/TypeScript, Remix, Tailwind CSS and modern front-end frameworks, compliant with web fundamentals like performance, accessibility, and responsive design. This site is a collection of the projects I've created, experiments I've run, and the path I'm carving as a developer. Off the clock, I swap pixels for pictures, still chasing
 						the perfect frame just with a different lens.
@@ -172,7 +172,7 @@ export default function Index() {
 			className="w-full h-full flex lg:flex-row  flex-col items-center lg:justify-between justify-center ">
 			<div className="flex flex-col justify-center  lg:pr-16 pr-0 items-center lg::w-1/2 w-full md:p-0 p-3">
 				<div className="md:text-8xl text-7xl  font-bold pb-3">portfolio</div>
-				<div className="text-lg text-justify lg:p-0 p-4">
+				<div className="text-lg lg:text-justify text-left lg:p-0 p-4">
 					<p>Checkout my work here.</p>
 					<p></p>
 				</div>
@@ -278,7 +278,7 @@ export default function Index() {
 			className="w-full h-full flex lg:flex-row  flex-col items-center lg:justify-between justify-center ">
 			<div className="flex flex-col justify-center  lg:pr-16 pr-0 items-center lg::w-1/2 w-full md:p-0 p-3">
 				<div className="md:text-8xl text-7xl font-bold pb-3">contact</div>
-				<div className="text-lg text-justify lg:p-0 p-4">
+				<div className="text-lg lg:text-justify text-left lg:p-0 p-4">
 					<div>
 						<p>I’d love to hear from you whether you want to chat, collaborate, give feedback, or just ask a question. Don’t hesitate to reach out. I’m always around and excited to connect!</p>
 					</div>
