@@ -57,7 +57,7 @@ export default function Index() {
 		},
 		[
 			/* You can add dependencies here if children change dynamically */
-		]
+		],
 	)
 
 	const [showPopover, setShowPopover] = useState(false)
@@ -80,14 +80,14 @@ export default function Index() {
 	}
 	function scrollRight(ref) {
 		ref.current.scrollBy({
-			left: 250,
+			left: 260,
 			behavior: "smooth",
 		})
 	}
 
 	function scrollLeft(ref) {
 		ref.current.scrollBy({
-			left: -250,
+			left: -260,
 			behavior: "smooth",
 		})
 	}
